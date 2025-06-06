@@ -61,7 +61,7 @@ class MovieDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
         fields = ("id", "title", "description",
-                  "duration", "genres","actors")
+                  "duration", "genres", "actors")
 
 
 class MovieSessionListSerializer(serializers.ModelSerializer):
@@ -87,6 +87,7 @@ class MovieSessionListSerializer(serializers.ModelSerializer):
 class MovieSessionDetailSerializer(serializers.ModelSerializer):
     movie = MovieListSerializer(read_only=True)
     cinema_hall = CinemaHallSerializer(read_only=True)
+
     class Meta:
         model = MovieSession
         fields = ("id", "show_time", "movie", "cinema_hall")
